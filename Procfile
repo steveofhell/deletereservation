@@ -1,0 +1,1 @@
+worker: echo "Worker is ready to receive scheduled tasks"
