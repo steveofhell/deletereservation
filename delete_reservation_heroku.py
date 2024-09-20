@@ -20,14 +20,10 @@ with open(SERVICE_ACCOUNT_INFO, 'r') as f:
     SERVICE_ACCOUNT_INFO = json.load(f)
 
 SHEET_ID = os.environ.get('SHEET_ID')
-scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+scope = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 creds = Credentials.from_service_account_info(SERVICE_ACCOUNT_INFO, scopes=scope)
 client = gspread.authorize(creds)
 
-google_creds = os.environ.get('GOOGLE_CREDENTIALS')
-if google_creds:
-    with open('google_credentials.json', 'w') as f:
-        f.write(google_creds)
 
 # Define BASE_URL and LOGIN_URL
 BASE_URL = "https://picklesocialclub.playbypoint.com"
